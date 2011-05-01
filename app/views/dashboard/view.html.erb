@@ -1,0 +1,65 @@
+  <div id="tree">
+
+    <ul id="treeData">
+      <li id="id1">item1
+      <li id="id2">item2
+      <li id="id3" class="folder">Folder
+        <ul>
+          <li id="id3.1">Sub-item 3.1
+            <ul>
+              <li id="id3.1.1">Sub-item 3.1.1
+              <li id="id3.1.2">Sub-item 3.1.2
+            </ul>
+          <li id="id3.2">Sub-item 3.2
+            <ul>
+              <li id="id3.2.1">Sub-item 3.2.1
+              <li id="id3.2.2">Sub-item 3.2.2
+            </ul>
+        </ul>
+      <li id="id4" class="expanded">Document
+        <ul>
+          <li id="id4.1"  class="active focused">Sub-item 4.1
+            <ul>
+              <li id="id4.1.1">Sub-item 4.1.1
+              <li id="id4.1.2">Sub-item 4.1.2
+            </ul>
+          <li id="id4.2">Sub-item 4.2
+            <ul>
+              <li id="id4.2.1">Sub-item 4.2.1
+              <li id="id4.2.2">Sub-item 4.2.2
+            </ul>
+        </ul>
+    </ul>
+
+  </div>
+  <div id="graph_wrapper">
+    <div id="graph"></div>
+  </div>
+  <div id="control">
+    <% flash.each do |key, value| %>
+      <div class="flash <%= key %>"><%= value %></div>
+    <% end %>
+    Control
+  </div>
+
+  <script type="text/javascript"> 
+  $(function () {
+
+      var data = [];
+      for (var i = 0; i < 100; i += 1)
+          data.push([i, Math.sin(i/10)]);
+   
+      $.plot($("#graph"), [ {
+          color: '#0000ff',
+          data: data,
+          points: { show: true }
+        } ]);
+
+      $.ui.dynatree.nodedatadefaults["icon"] = false; // Turn off icons by default
+
+      $("#tree").dynatree({
+        checkbox: true
+      });
+  });
+
+  </script> 
