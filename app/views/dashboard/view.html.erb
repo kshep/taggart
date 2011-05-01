@@ -48,12 +48,27 @@
       var data = [];
       for (var i = 0; i < 100; i += 1)
           data.push([i, Math.sin(i/10)]);
-   
+ 
+      var d2 = []; 
+
+      $.ajax({
+        url: '/data.json',
+        async: false,
+        dataType: 'json',
+        success: function (json) {
+          d2 = json;
+        }
+      });
+
       $.plot($("#graph"), [ {
           color: '#0000ff',
-          data: data,
-          points: { show: true }
-        } ]);
+          data: d2,
+        } ], {
+          xaxis: { 
+            mode: "time",
+            timeformat: "%m/%d %h:%M"
+          }
+        });
 
       $.ui.dynatree.nodedatadefaults["icon"] = false; // Turn off icons by default
 
