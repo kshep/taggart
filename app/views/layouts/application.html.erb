@@ -10,6 +10,10 @@
   <div class="container">
     <%= render 'layouts/header' %>
     <section class="round">
+
+      <% if notice %><p class="notice"><%= notice %></p><% end %>
+      <% if alert %><p class="alert"><%= alert %></p><% end %>
+
       <% flash.each do |key, value| %>
         <div class="flash <%= key %>"><%= value %></div>
       <% end %>
