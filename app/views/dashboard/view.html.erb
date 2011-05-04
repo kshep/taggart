@@ -12,51 +12,10 @@
   <script type="text/javascript"> 
 
   $(function () {
+	
+	  draw_graph('#graph', 'server_status|uptimeEstimate');
+      draw_tree();
 
-      var d1 = []; 
-      var d2 = []; 
-
-      $.ajax({
-        url: '/data/server_status|uptimeEstimate',
-        async: false,
-        dataType: 'json',
-        success: function (json) {
-          d2 = json;
-        }
-      });
-
-      $.ajax({
-        url: '/data/server_status|uptime',
-        async: false,
-        dataType: 'json',
-        success: function (json) {
-          d1 = json;
-        }
-      });
-
-      var options = {
-          xaxis: { mode: "time", timeformat: "%m/%d %h:%M" },
-      };
-
-      var data = [
-          { color: "#0000ff", data: d1 },
-          { color: "#00ff00", data: d2 },
-      ]
-
-      var plot = $.plot($("#graph"), data, options);
-
-
-      $.ui.dynatree.nodedatadefaults["icon"] = false; // Turn off icons
-
-      $("#tree").dynatree({
-        checkbox: true,
-        onSelect: function(select, node) {
-          var selKeys = $.map(node.tree.getSelectedNodes(), function(node){
-            return node.data.key;
-          });
-          $("#control").text(selKeys.join(", "));
-        }
-      });
   });
 
   </script> 
