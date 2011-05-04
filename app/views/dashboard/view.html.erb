@@ -12,12 +12,10 @@
   </div>
 
   <script type="text/javascript"> 
+
   $(function () {
 
-      var data = [];
-      for (var i = 0; i < 100; i += 1)
-          data.push([i, Math.sin(i/10)]);
- 
+      var d1 = []; 
       var d2 = []; 
 
       $.ajax({
@@ -34,7 +32,7 @@
         async: false,
         dataType: 'json',
         success: function (json) {
-          d3 = json;
+          d1 = json;
         }
       });
 
@@ -44,8 +42,8 @@
       };
 
       var data = [
-          { color: "#0000ff", data: d2 },
-          { color: "#00ff00", data: d3 },
+          { color: "#0000ff", data: d1 },
+          { color: "#00ff00", data: d2 },
       ]
 
       var plot = $.plot($("#graph"), data, options);
