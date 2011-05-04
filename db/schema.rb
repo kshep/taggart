@@ -10,7 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110503003938) do
+ActiveRecord::Schema.define(:version => 20110504015516) do
+
+  create_table "curves", :force => true do |t|
+    t.integer  "graph_id"
+    t.string   "label"
+    t.string   "color"
+    t.string   "symbol"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "graphs", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "caption"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
