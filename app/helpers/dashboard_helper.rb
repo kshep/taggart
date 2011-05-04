@@ -1,10 +1,17 @@
 module DashboardHelper
   def list
-    data = Event.all.last['data']
-    @result = "<ul id='treeData'>"
-    traverse(data,[],"  ")
-    @result <<  "</ul>"
-    @result
+    event = Event.last || {}
+    data = event['data']
+   
+    if data 
+      @result = "<ul id='treeData'>"
+      traverse(data,[],"  ") if data
+      @result <<  "</ul>"
+      @result
+    else
+      "No event data found"
+    end
+
   end
 
   def traverse(e, path, pre)
