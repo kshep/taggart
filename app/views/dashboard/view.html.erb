@@ -46,15 +46,6 @@
       var plot = $.plot($("#graph"), data, options);
 
 
-      $("#graph").bind("plotselected", function (event, ranges) {
-            $("#control").text(ranges.xaxis.from.toFixed(1) + " to " + ranges.xaxis.to.toFixed(1));
-            plot = $.plot('#graph', data,
-                          $.extend(true, {}, options, {
-                              xaxis: { min: ranges.xaxis.from, max: ranges.xaxis.to }
-                          }));
-      });
-
-
       $.ui.dynatree.nodedatadefaults["icon"] = false; // Turn off icons
 
       $("#tree").dynatree({
