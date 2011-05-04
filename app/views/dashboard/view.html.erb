@@ -5,17 +5,16 @@
     <%= raw(list) %>
   </div>
   <div id="graph_wrapper">
-    <div id="graph"></div>
+    <div id="graph" class="graph"></div>
+    <div id="graph-server_status:mem:resident" class="graph"></div>
   </div>
 
 
   <script type="text/javascript"> 
 
   $(function () {
-	
-	  draw_graph('#graph', 'server_status|uptimeEstimate');
-      draw_tree();
-
+    draw_tree();
+    draw_graphs();
   });
 
   </script> 

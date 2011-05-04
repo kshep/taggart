@@ -23,7 +23,7 @@ module DashboardHelper
         @result << "#{pre}  </ul>"
         @result << "#{pre}</li>"
       else
-        @result << "#{pre}<li id='#{(path+[k]).compact.join('|')}'>#{k}</li>" if v.is_a?(Numeric)
+        @result << "#{pre}<li id='#{(path+[k]).compact.join(':')}'>#{k}</li>" if v.is_a?(Numeric)
       end
     end
   end
