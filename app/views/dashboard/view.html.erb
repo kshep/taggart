@@ -1,12 +1,13 @@
+  <div id="control">
+    Control
+  </div>
   <div id="tree">
     <%= raw(list) %>
   </div>
   <div id="graph_wrapper">
     <div id="graph"></div>
   </div>
-  <div id="control">
-    Control
-  </div>
+
 
   <script type="text/javascript"> 
 
@@ -35,7 +36,6 @@
 
       var options = {
           xaxis: { mode: "time", timeformat: "%m/%d %h:%M" },
-          selection: { mode: "x" }
       };
 
       var data = [

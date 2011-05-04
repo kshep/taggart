@@ -15,10 +15,11 @@ body {
   padding: 5px;
   margin: 10px;
   width: 240px;
-  height: 600px;
+  height: 370px;
   display: block;
   float: left;
   overflow: auto;
+  clear: both;
 }
 
 #graph_wrapper {
@@ -43,8 +44,8 @@ body {
   border: 1px solid #666;
   padding: 5px;
   margin: 10px;
-  width: 890px;
-  height: 200px;
+  width: 1160px;
+  height: 100px;
 }
 #debug {
   display: block;
