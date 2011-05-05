@@ -39,6 +39,11 @@ body {
   width: 870px;
   height: 150px;
 }
+.graph_title {
+  font-weight: bold;
+  margin: 5px 0px 0px 10px;
+}
+
 #control {
   background-color: #fff;
   display: block;

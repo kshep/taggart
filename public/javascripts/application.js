@@ -24,11 +24,7 @@ function draw_graph(div, key) {
       legend: { position: "se" }
   };
 
-  // var data = [
-  //     { color: "#0000ff", data: d1 },
-  //     { color: "#00ff00", data: d2 },
-  
-  var plot = $.plot(div, [ { label: key, color: "#0000ff", data: data }], options);
+  var plot = $.plot(div, [ { color: "#0000ff", data: data }], options);
      
 }
 
@@ -45,8 +41,9 @@ function draw_tree() {
       $("#control").text(selKeys.join(", "));
       $('#graph_wrapper').empty();
       for (var i in selKeys) {
-        var div = $('<div></div>').attr('id','graph'+i);
-        div.attr('class','graph');
+        var div = $('<div>');
+        div.append($('<div>').text(selKeys[i]).attr('class','graph_title'));
+        div.append($('<div>').attr('id','graph'+i).attr('class','graph'));
         $('#graph_wrapper').append(div);
         draw_graph('#graph'+i, selKeys[i]);
       }
