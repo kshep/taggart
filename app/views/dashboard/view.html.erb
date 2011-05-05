@@ -1,14 +1,17 @@
   <div id="info_wrapper">
-    <div id="info">
-      <form>
-      <div><span class="info_label">Selected Stats: </span><span id="info_keys">(Select using the tree below)</span></div>
-      <div><span class="info_label">Start Date/Time: </span><input type="text" id="start_datetime"/></div>
-      <div><span class="info_label">End Date/Time: </span><input type="text" id="end_datetime"/></div>
-      </form>
-    </div>
-    <div id="info_buttons">
-      <div id="info_draw">Draw Graphs</div>
-    </div>
+    <form>
+      <div id="info">
+        <div><span class="info_label">Selected Stats: </span><span id="info_keys"></span></div>
+        <div><span class="info_label">Start Date/Time: </span><input type="text" id="start_datetime"/></div>
+        <div><span class="info_label">End Date/Time: </span><input type="text" id="end_datetime"/></div>
+      </div>
+      <div id="info_buttons">
+        <div id="info_draw">Draw Graph</div>
+        <div id="info_save">Save Graph</div>
+      </div>
+      <input type="hidden" id="graph_id"/>
+      <input type="hidden" id="keys"/>
+    </form>
   </div>
   <div id="tree_wrapper">
     <div id="tree"><%= raw(list) %></div>

@@ -54,7 +54,9 @@ body {
 }
 
 #info_buttons div {
-  width: 150px;
+  float: right;
+  width: 100px;
+  margin: 0px 0px 0px 5px;
 }
 
 #tree_buttons div:hover, #info_buttons div:hover {
