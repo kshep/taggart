@@ -1,2 +1,4 @@
-<header>
-</header>
+<div id="header">
+  <div class="left" style="font-weight: bold; font-size: 200%">taggart</div>
+  <div class="right"><%= current_user.nil? ? link_to( "Log in", new_user_session_path ) : current_user.username %></div>
+</div>
