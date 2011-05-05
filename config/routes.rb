@@ -2,8 +2,7 @@ Taggart::Application.routes.draw do
 
   devise_for :users
 
-  resources  :events
-  resources  :data
+  resources  :events, :data, :graphs
 
   root  :to => "dashboard#view"
   match '/contact', :to => "pages#contact"

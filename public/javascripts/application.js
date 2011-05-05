@@ -19,8 +19,7 @@ function get_selected() {
 
 function draw_graphs() {
 
-
-  $('.flash').remove();
+  //$('.flash').remove();
 
   keys = get_selected();
 
