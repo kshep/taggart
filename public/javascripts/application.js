@@ -38,6 +38,7 @@ function draw_tree() {
       var selKeys = $.map(node.tree.getSelectedNodes(), function(node){
         return node.data.key;
       });
+      $('.flash').remove();
       $("#info").text(selKeys.join(", "));
       $('#graph_wrapper').empty();
       for (var i in selKeys) {
