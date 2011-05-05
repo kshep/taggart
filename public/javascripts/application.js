@@ -43,8 +43,13 @@ function draw_tree() {
       $('#graph_wrapper').empty();
       for (var i in selKeys) {
         var div = $('<div>');
-        div.append($('<div>').text(selKeys[i]).attr('class','graph_title'));
-        div.append($('<div>').attr('id','graph'+i).attr('class','graph'));
+        div.append($('<div>')
+          .attr('class','graph_title'))
+          .text(selKeys[i]);
+        div.append($('<div>')
+          .attr('id','graph'+i)
+          .attr('class','graph')
+        );
         $('#graph_wrapper').append(div);
         draw_graph('#graph'+i, selKeys[i]);
       }
