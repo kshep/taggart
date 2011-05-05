@@ -1,8 +1,20 @@
-  <div id="info">
-    info
+  <div id="info_wrapper">
+    <div id="info">
+      <form>
+      <div><span class="info_label">Selected Stats: </span><span id="info_keys">(Select using the tree below)</span></div>
+      <div><span class="info_label">Start Date/Time: </span><input type="text" id="start_datetime"/></div>
+      <div><span class="info_label">End Date/Time: </span><input type="text" id="end_datetime"/></div>
+      </form>
+    </div>
+    <div id="info_buttons">
+      <div id="info_draw">Draw Graphs</div>
+    </div>
   </div>
-  <div id="tree">
-    <%= raw(list) %>
+  <div id="tree_wrapper">
+    <div id="tree"><%= raw(list) %></div>
+    <div id="tree_buttons">
+      <div id="tree_select_none">Clear Selection</div>
+    </div>
   </div>
   <div id="graph_wrapper">
     <div id="graph" class="graph"></div>
@@ -13,6 +25,10 @@
   <script type="text/javascript"> 
 
   $(function () {
+    $('#tree_select_none').click(function() { clear_tree(); });
+    $('#info_draw').click(function() { draw_graphs(); });
+    $('#start_datetime').datetimepicker();
+    $('#end_datetime').datetimepicker();
     draw_tree();
     draw_graphs();
   });
