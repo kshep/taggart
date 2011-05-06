@@ -20,11 +20,10 @@ function get_selected() {
 function draw_graphs() {
 
   //$('.flash').remove();
-
   keys = get_selected();
-
-  $("#info_keys").text(keys.join(", "));
-  $("#keys").val(keys.join(", "));
+ 
+  //$("#info_keys").text(keys.join(", "));
+  //$("#graph_keys").val(keys.join(", "));
 
   $('#graph_wrapper').empty();
   for (var i in keys) {
@@ -57,12 +56,12 @@ function draw_graph(div, key) {
 
  
   
-  var min_date = new Date($('#start_datetime').val());
-  var max_date = new Date($('#end_datetime').val());
+  var min_date = new Date($('#graph_formatted_start_at').val());
+  var max_date = new Date($('#graph_formatted_end_at').val());
  
   var graph_min = min_date.getTime() - 25200000;
   var graph_max = max_date.getTime() - 25200000;
- 
+
   var options = {
       xaxis: { mode: "time", timeformat: "%m/%d %h:%M", min: graph_min, max: graph_max },
       legend: { position: "se" }
@@ -78,10 +77,10 @@ function draw_tree() {
 
   $("#tree").dynatree({ checkbox: true,
     onSelect: function(select, node) {
-      keys = get_selected();
-      $("#info_keys").text(keys.join(", "));
-      $("#keys").val(keys.join(", "));
-    }
-  });
+      var skeys = get_selected();
+      $("#info_keys").text(skeys.join(", "));
+      $("#graph_keys").val(skeys.join(", "));
+     }
+   });
   
 }

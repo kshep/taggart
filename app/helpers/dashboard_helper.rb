@@ -2,10 +2,13 @@ module DashboardHelper
   def list
     event = Event.last || {}
     data = event['data']
-   
+  
+    keys = current_user.graphs.first.keys.split(/,\s*/)
+
     if data 
-      @result = "<ul id='treeData'>"
-      traverse(data,[],"  ") if data
+      @result = ""
+      @result << "<ul id='treeData'>"
+      traverse(data,[],"  ",keys) if data
       @result <<  "</ul>"
       @result
     else
@@ -14,16 +17,18 @@ module DashboardHelper
 
   end
 
-  def traverse(e, path, pre)
+  def traverse(e, path, pre, keys)
     e.each do |k,v|
       if v.respond_to?('each')
         @result << "#{pre}<li data='hideCheckbox: true'>#{k}"
         @result << "#{pre}  <ul>"
-        traverse(v, path+[k], pre+"    ")
+        traverse(v, path+[k], pre+"    ",keys)
         @result << "#{pre}  </ul>"
         @result << "#{pre}</li>"
       else
-        @result << "#{pre}<li id='#{(path+[k]).compact.join(':')}'>#{k}</li>" if v.is_a?(Numeric)
+        this_key = (path+[k]).compact.join(':')
+        selected = keys.include?(this_key) ? 'class = "selected"' : ""
+        @result << "#{pre}<li #{selected} id='#{this_key}'>#{k}</li>" if v.is_a?(Numeric)
       end
     end
   end

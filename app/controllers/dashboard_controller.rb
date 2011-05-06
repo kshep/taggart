@@ -4,6 +4,6 @@ class DashboardController < ApplicationController
 
   def view
     @title = "Test"
-    @graph = Graph.new()
+    @graph = current_user.graphs.first
   end
 end

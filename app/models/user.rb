@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :graphs
   attr_accessor :login
 
   # Setup accessible (or protected) attributes for your model

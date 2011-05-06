@@ -2,15 +2,15 @@
     <%= form_for(@graph) do |g| %>
       <div id="info">
         <div><span class="info_label">Selected Stats: </span><span id="info_keys"></span></div>
-        <div><span class="info_label">Start Date/Time: </span><input type="text" id="start_at"/></div>
-        <div><span class="info_label">End Date/Time: </span><input type="text" id="end_at"/></div>
+        <div><span class="info_label">Start Date/Time: </span><%= g.text_field :formatted_start_at %></div>
+        <div><span class="info_label">End Date/Time: </span><%= g.text_field :formatted_end_at %></div>
       </div>
       <div id="info_buttons">
         <input id="graph_draw" type="button" value="Draw Graph">
         <%= g.submit "Save" %>
       </div>
-      <input type="hidden" id="graph_id"/>
-      <input type="hidden" id="keys"/>
+      <%= g.hidden_field :id %>
+      <%= g.hidden_field :keys %>
     <% end %>
   </div>
   <div id="tree_wrapper">
@@ -30,10 +30,12 @@
   $(function () {
     $('#tree_select_none').click(function() { clear_tree(); });
     $('#graph_draw').click(function() { draw_graphs(); });
-    $('#start_at').datetimepicker();
-    $('#end_at').datetimepicker();
-    draw_tree();
-    draw_graphs();
+    $('#graph_formatted_start_at').datetimepicker();
+    $('#graph_formatted_end_at').datetimepicker();
+    var keys = $('#graph_keys').val();
+    $('#info_keys').text(keys)
+    draw_tree(keys);
+    draw_graphs(keys);
   });
 
   </script> 
