@@ -2,8 +2,12 @@ module DashboardHelper
   def list
     event = Event.last || {}
     data = event['data']
-  
-    keys = current_user.graphs.first.keys.split(/,\s*/)
+
+    begin  
+      keys = current_user.graphs.first.keys.split(/,\s*/)
+    rescue
+      keys = []
+    end
 
     if data 
       @result = ""

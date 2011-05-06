@@ -18,7 +18,7 @@ class Graph < ActiveRecord::Base
   attr_accessible :keys, :start_at, :end_at
 
   def formatted_start_at
-    start_at.strftime('%d/%m/%Y %H:%M')
+    start_at.strftime('%m/%d/%Y %H:%M')
   end
 
   def formatted_start_at=(time_str)
@@ -26,7 +26,7 @@ class Graph < ActiveRecord::Base
   end
 
   def formatted_end_at
-    end_at.strftime('%d/%m/%Y %H:%M')
+    end_at.strftime('%m/%d/%Y %H:%M')
   end
 
   def formatted_end_at=(time_str)
