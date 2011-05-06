@@ -19,13 +19,9 @@ function get_selected() {
 
 function draw_graphs() {
 
-  //$('.flash').remove();
   keys = get_selected();
- 
-  //$("#info_keys").text(keys.join(", "));
-  //$("#graph_keys").val(keys.join(", "));
 
-  $('#graph_wrapper').empty();
+  $('#graph_wrapper').empty()
   for (var i in keys) {
     var div = $('<div>');
     div.append($('<div>')
@@ -35,7 +31,7 @@ function draw_graphs() {
       .attr('id','graph'+i)
       .attr('class','graph')
     );
-    $('#graph_wrapper').append(div);
+    $('#graph_wrapper').append(div)
     draw_graph('#graph'+i, keys[i]);
   }
 
@@ -54,8 +50,6 @@ function draw_graph(div, key) {
        }
      });
 
- 
-  
   var min_date = new Date($('#graph_formatted_start_at').val());
   var max_date = new Date($('#graph_formatted_end_at').val());
  
