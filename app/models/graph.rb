@@ -22,7 +22,7 @@ class Graph < ActiveRecord::Base
   end
 
   def formatted_start_at=(time_str)
-    self.start_at = Time.zone.parse(time_str)
+    self.start_at = DateTime.strptime(time_str, "%m/%d/%Y %H:%M")
   end
 
   def formatted_end_at
@@ -30,7 +30,7 @@ class Graph < ActiveRecord::Base
   end
 
   def formatted_end_at=(time_str)
-    self.end_at = Time.zone.parse(time_str)
+    self.end_at = DateTime.strptime(time_str, "%m/%d/%Y %H:%M")
   end
 
 end
