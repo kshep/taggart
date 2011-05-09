@@ -1,6 +1,6 @@
 module DashboardHelper
   def list
-    event = Event.last || {}
+    event = Event.all.last || {}
     data = event['data']
 
     begin  
