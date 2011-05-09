@@ -1,11 +1,14 @@
 class GraphsController < ApplicationController
   def create
-    @graph = Graph.new(params[:graph])
+    @graph = Graph.new
+    @graph.keys = params[:graph]["keys"]
+    @graph.formatted_start_at = params[:graph]["formatted_start_at"]
+    @graph.formatted_end_at = params[:graph]["formatted_end_at"]
     @graph.user_id = current_user.id
     if @graph.save
       flash[:success] = "Graph saved for #{@graph.user.username}"
     else
-      flash[:error] = "Couldn't save graph for #{@graph.user.username}"
+      flash[:error] = "Couldn't save graph for #{@graph.user.username} (#{params[:graph]})"
     end
     redirect_to root_path
   end
