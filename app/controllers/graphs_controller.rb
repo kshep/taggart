@@ -1,10 +1,14 @@
 class GraphsController < ApplicationController
+
   def create
+
     @graph = Graph.new
-    @graph.keys = params[:graph]["keys"]
+
+    @graph.user_id            = current_user.id
+    @graph.keys               = params[:graph]["keys"]
     @graph.formatted_start_at = params[:graph]["formatted_start_at"]
-    @graph.formatted_end_at = params[:graph]["formatted_end_at"]
-    @graph.user_id = current_user.id
+    @graph.formatted_end_at   = params[:graph]["formatted_end_at"]
+
     if @graph.save
       flash[:success] = "Graph saved for #{@graph.user.username}"
     else
