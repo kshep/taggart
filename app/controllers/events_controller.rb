@@ -9,5 +9,7 @@ class EventsController < ApplicationController
       format.xml  { render :text => 'OK' }
       format.json { render :text => 'OK' }
     end
+
   end
+
 end

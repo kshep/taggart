@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
 
   def view
 
-    @title = "Test"
+    @title = "Taggart"
 
     if current_user.graphs.empty?
       @graph = Graph.new

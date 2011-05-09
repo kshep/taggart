@@ -1,5 +1,7 @@
 class DataController < ApplicationController
+
   def show
+
     @path = 'data:'+params[:id]
 
     @data = []
@@ -12,4 +14,5 @@ class DataController < ApplicationController
     render :json => @data 
 
   end
+
 end
