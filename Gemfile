@@ -8,6 +8,8 @@ gem 'jquery-rails'
 gem 'mongo_mapper'
 gem 'warden'
 gem 'devise'
+gem 'resque'
+gem 'resque-scheduler'
 
 group :development do
   gem 'rspec-rails'
