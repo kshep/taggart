@@ -1,0 +1,3 @@
+mongo_stats:
+  cron: "* * * * *"
+  class: MongoStats
